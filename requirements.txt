@@ -1,0 +1,35 @@
+# web server
+flask>=1.1.1
+jinja2
+markupsafe
+werkzeug
+itsdangerous
+click
+pyyaml
+flask-httpauth>=3.3.0
+flask-script
+gunicorn
+
+# database
+pymongo==3.10.1
+dnspython==1.16.0
+
+# swagger
+flask-swagger==0.2.14
+flask-swagger-ui==3.20.9
+
+# modules
+python-dateutil==2.8.1
+python-dotenv==0.11.0
+
+# tests / ci
+pytest==5.3.5
+bandit
+coveralls
+coverage<5.0,>=3.6
+pylint
+zipp
+stevedore>=1.20.0
+GitPython>=1.0.1
+smmap<4,>=3.0.1
+six==1.12

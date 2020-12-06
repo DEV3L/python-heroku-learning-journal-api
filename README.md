@@ -1,0 +1,75 @@
+[![Build Status](https://travis-ci.org/DEV3L/python-flask-heroku-learning-journal.svg?branch=master)](https://travis-ci.org/DEV3L/python-flask-heroku-learning-journal)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fc5ba38b5fb2100bb834/maintainability)](https://codeclimate.com/github/DEV3L/python-flask-heroku-learning-journal/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/DEV3L/python-flask-heroku-learning-journal/badge.svg?branch=master)](https://coveralls.io/github/DEV3L/python-flask-heroku-learning-journal?branch=master)
+
+# Python Flask Heroku Learning Journal API
+
+Social learning journal.
+
+Article written on Dev.to detailing project purpose, setup, and execution:<br />
+[Social Learning Journal (Pt. 1)](https://dev.to/dev3l/message-bot-to-find-a-ps5-on-sale-2n5k)
+
+## Prerequisites
+
+- Python 3x
+- MongoDB
+
+### Recommendations
+
+- PyCharm
+- MongoDB Compass
+- Docker
+
+## Environment Variables
+
+Copy the contents of .env.local into a new file named .env
+
+```
+cp .env.local .env
+```
+
+## Running Locally
+
+1. Setup MongoDb
+
+`docker run -d -p 27017:27017 --name learning-journal mongo`
+
+2. Install Python Dependencies
+
+```
+~ python3 -m venv python-flask-heroku-learning-journal
+~ source python-flask-heroku-learning-journal/bin/activate
+(python-flask-heroku-learning-journal) ~ python setup.py develop
+```
+
+3. Run Tests
+
+`(python-flask-heroku-learning-journal) ~ pytest`
+
+4. Run Application for Development
+
+`(python-flask-heroku-learning-journal) ~ python app.py runserver`
+
+
+#### PyCharm
+
+Dependency management and interactive debugging are available using PyCharm.
+
+The [Configure a virtual environment](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
+can help with questions on how to do this.
+
+## Components
+
+#### Flask
+
+#### MongoDb
+
+#### Logging
+
+`logs` directory - Rotating 10mb
+
+#### Swagger
+
+http://localhost:5000/swagger
+
+#### Scripts
