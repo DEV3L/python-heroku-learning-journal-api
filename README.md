@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/DEV3L/python-flask-heroku-learning-journal.svg?branch=master)](https://travis-ci.org/DEV3L/python-flask-heroku-learning-journal)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fc5ba38b5fb2100bb834/maintainability)](https://codeclimate.com/github/DEV3L/python-flask-heroku-learning-journal/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/DEV3L/python-flask-heroku-learning-journal/badge.svg?branch=master)](https://coveralls.io/github/DEV3L/python-flask-heroku-learning-journal?branch=master)
+[![Build Status](https://travis-ci.org/DEV3L/python-heroku-learning-journal-api.svg?branch=master)](https://travis-ci.org/DEV3L/python-heroku-learning-journal-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d81f4a4e4735be1cf16/maintainability)](https://codeclimate.com/github/DEV3L/python-heroku-learning-journal-api/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/DEV3L/python-heroku-learning-journal-api/badge.svg?branch=master)](https://coveralls.io/github/DEV3L/python-heroku-learning-journal-api?branch=master)
 
 # Python Flask Heroku Learning Journal API
 
