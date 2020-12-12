@@ -3,21 +3,15 @@ import os
 from datetime import datetime
 from functools import reduce
 
-from dateutil.parser import parse
 from dotenv import load_dotenv
+
+from src.extractors.time_extractor import TimeExtractor
 
 load_dotenv()
 
 DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
 
 current_year = datetime.today().year
-first_of_year = parse(f'Jan 1 00:00:00 +0000 {current_year}')
-end_of_year = parse(f'Dec 31 23:59:59 +0000 {current_year}')
-
-
-def filter_by_this_year(tweet: dict) -> bool:
-    created_at = parse(tweet['tweet']['created_at'])
-    return first_of_year <= created_at <= end_of_year
 
 
 def filter_by_audiobook_start(tweet: dict) -> bool:
@@ -36,7 +30,8 @@ if __name__ == "__main__":
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 
-    tweets_from_this_year = list(filter(filter_by_this_year, data))
+    time_extractor = TimeExtractor(data)
+    tweets_from_this_year = time_extractor.tweets_for_year(current_year)
     audio_books_from_this_year = list(filter(filter_by_audiobook_start, tweets_from_this_year))
 
     audio_book_titles = list(reduce(reduce_book_titles, audio_books_from_this_year, set()))
@@ -44,10 +39,3 @@ if __name__ == "__main__":
     print(f'## {current_year} Audiobooks:')
     for book_title in audio_book_titles:
         print(f'- {book_title}')
-
-{
-    'tweet':
-        {
-            'created_at': 'Thu Jan 09 20:23:34 +0000 2020',
-        }
-}
