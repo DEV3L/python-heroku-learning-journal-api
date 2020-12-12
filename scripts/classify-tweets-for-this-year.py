@@ -44,10 +44,3 @@ if __name__ == "__main__":
     print(f'## {current_year} Audiobooks:')
     for book_title in audio_book_titles:
         print(f'- {book_title}')
-
-{
-    'tweet':
-        {
-            'created_at': 'Thu Jan 09 20:23:34 +0000 2020',
-        }
-}

@@ -7,7 +7,8 @@
 Social learning journal.
 
 Article written on Dev.to detailing project purpose, setup, and execution:<br />
-[Social Learning Journal (Pt. 1)](https://dev.to/dev3l/message-bot-to-find-a-ps5-on-sale-2n5k)
+[Social Learning Journal - Parsing Audiobooks](https://dev.to/dev3l/social-learning-journal-parsing-audiobooks-2428)
+[Social Learning Journal - Classification](https://dev.to/dev3l/social-learning-journal-parsing-audiobooks-2428)
 
 ## Prerequisites
 
