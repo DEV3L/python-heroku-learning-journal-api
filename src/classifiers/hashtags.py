@@ -3,7 +3,8 @@ CLASSIFICATION_AGILE = "agile"
 CLASSIFICATION_LEADERSHIP = "leadership"
 CLASSIFICATION_OTHER = "other"
 
-classified_hashtags = {
+# Eventually move to database
+CLASSIFIED_HASHTAGS = {
     "agile": CLASSIFICATION_AGILE,
     "agile2020": CLASSIFICATION_AGILE,
     "agileprimedirective": CLASSIFICATION_AGILE,

@@ -8,7 +8,7 @@ class TweetEventModel:
     text = None
     kcv = None
 
-    def __init__(self, hashtags: List, text: str):
+    def __init__(self, hashtags: List[str], text: str):
         self.hashtags = hashtags
         self.text = text
         self.kcv = DEFAULT_KCV_VALUE

@@ -2,13 +2,14 @@ import json
 import os
 from datetime import datetime
 from functools import reduce
-from typing import List
 
 from dotenv import load_dotenv
 
 from src.classifiers.hashtags import CLASSIFICATION_ENGINEERING, CLASSIFICATION_AGILE, \
-    CLASSIFICATION_LEADERSHIP, CLASSIFICATION_OTHER, classified_hashtags
+    CLASSIFICATION_LEADERSHIP, CLASSIFICATION_OTHER
+from src.extractors.classification_extractor import ClassificationExtractor
 from src.extractors.time_extractor import TimeExtractor
+from src.models.tweet_event_model import TweetEventModel
 
 load_dotenv()
 
@@ -24,20 +25,10 @@ classifications = {
 }
 
 
-def classify(classification: str, tweet_hashtags_to_classify: List[str]) -> int:
-    return len(list(filter(
-        lambda hashtag: classification == classified_hashtags.get(hashtag), tweet_hashtags_to_classify)))
+def reduce_classifications(result: dict, tweet_event: TweetEventModel) -> dict:
+    classification_extractor = ClassificationExtractor(tweet_event)
+    classification = classification_extractor.classify()
 
-
-def reduce_classifications(result: dict, tweet_hashtags: list) -> dict:
-    classification_keys = result.keys()
-
-    tag_classifications = {
-        classification: classify(classification, tweet_hashtags)
-        for classification in classification_keys
-    }
-
-    classification = max(tag_classifications, key=tag_classifications.get)
     result[classification] = result[classification] + 1
 
     return result
@@ -51,8 +42,8 @@ if __name__ == "__main__":
     tweets_from_this_year = time_extractor.tweets_for_year(current_year)
 
     tweet_hashtags_from_this_year = [
-        [hashtag_entity['text'].lower()
-         for hashtag_entity in tweet['tweet']['entities']['hashtags']]
+        TweetEventModel([hashtag_entity['text'].lower()
+                         for hashtag_entity in tweet['tweet']['entities']['hashtags']], tweet['tweet']['full_text'])
         for tweet in tweets_from_this_year]
 
     classified_tweets = reduce(reduce_classifications, tweet_hashtags_from_this_year, classifications)

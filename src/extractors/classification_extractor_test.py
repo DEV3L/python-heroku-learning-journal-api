@@ -1,27 +1,6 @@
-from src.classifiers.hashtags import CLASSIFICATION_OTHER, CLASSIFICATION_AGILE
+from src.classifiers.hashtags import CLASSIFICATION_OTHER, CLASSIFICATION_AGILE, CLASSIFICATION_ENGINEERING
 from src.extractors.classification_extractor import ClassificationExtractor
 from src.models.tweet_event_model import TweetEventModel
-
-tweet_engineering = {
-    'tweet':
-        {
-            'hashtags': ['engineering'],
-        }
-}
-
-tweet_agile = {
-    'tweet':
-        {
-            'hashtags': ['agile'],
-        }
-}
-
-tweet_multiple_agile = {
-    'tweet':
-        {
-            'hashtags': ['agile', 'lean', 'engineering'],
-        }
-}
 
 
 def test_extract_tweets_for_classification_zero():
@@ -44,6 +23,16 @@ def test_extract_tweets_for_agile():
     assert expected_classification == classification
 
 
+def test_extract_tweets_for_engineering():
+    expected_classification = CLASSIFICATION_ENGINEERING
+    tweet_event = TweetEventModel(["engineering"], "")
+
+    classification_extractor = ClassificationExtractor(tweet_event)
+    classification = classification_extractor.classify()
+
+    assert expected_classification == classification
+
+
 def test_extract_tweets_for_agile_not_found():
     expected_classification = CLASSIFICATION_OTHER
     tweet_event = TweetEventModel(["agle"], "")
@@ -53,13 +42,12 @@ def test_extract_tweets_for_agile_not_found():
 
     assert expected_classification == classification
 
-#
-# def test_extract_tweets_for_year_many():
-#     expected_count = 1
-#     tweet_data = [tweet_2019, tweet_2020]
-#
-#     time_extractor = TimeExtractor(tweet_data)
-#
-#     tweets_for_year = time_extractor.tweets_for_year("2020")
-#
-#     assert expected_count == len(tweets_for_year)
+
+def test_extract_tweets_for_agile_many():
+    expected_classification = CLASSIFICATION_AGILE
+    tweet_event = TweetEventModel(['agile', 'lean', 'engineering'], "")
+
+    classification_extractor = ClassificationExtractor(tweet_event)
+    classification = classification_extractor.classify()
+
+    assert expected_classification == classification

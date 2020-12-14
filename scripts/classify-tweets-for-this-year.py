@@ -7,7 +7,7 @@ from typing import List
 from dotenv import load_dotenv
 
 from src.classifiers.hashtags import CLASSIFICATION_ENGINEERING, CLASSIFICATION_AGILE, \
-    CLASSIFICATION_LEADERSHIP, CLASSIFICATION_OTHER, classified_hashtags
+    CLASSIFICATION_LEADERSHIP, CLASSIFICATION_OTHER, CLASSIFIED_HASHTAGS
 from src.extractors.time_extractor import TimeExtractor
 
 load_dotenv()
@@ -26,7 +26,7 @@ classifications = {
 
 def classify(classification: str, tweet_hashtags_to_classify: List[str]) -> int:
     return len(list(filter(
-        lambda hashtag: classification == classified_hashtags.get(hashtag), tweet_hashtags_to_classify)))
+        lambda hashtag: classification == CLASSIFIED_HASHTAGS.get(hashtag), tweet_hashtags_to_classify)))
 
 
 def reduce_classifications(result: dict, tweet_hashtags: list) -> dict:
@@ -37,7 +37,12 @@ def reduce_classifications(result: dict, tweet_hashtags: list) -> dict:
         for classification in classification_keys
     }
 
-    classification = max(tag_classifications, key=tag_classifications.get)
+    is_all_zeros = not sum(tag_classifications.values())
+    if is_all_zeros:
+        classification = CLASSIFICATION_OTHER
+    else:
+        classification = max(tag_classifications, key=tag_classifications.get)
+
     result[classification] = result[classification] + 1
 
     return result
