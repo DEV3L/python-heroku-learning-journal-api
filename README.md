@@ -6,9 +6,11 @@
 
 Social learning journal.
 
-Article written on Dev.to detailing project purpose, setup, and execution:<br />
-[Social Learning Journal - Parsing Audiobooks](https://dev.to/dev3l/social-learning-journal-parsing-audiobooks-2428)
-[Social Learning Journal - Classification](https://dev.to/dev3l/social-learning-journal-parsing-audiobooks-2428)
+Articles written on Dev.to detailing project purpose, setup, and execution:<br />
+[Social Learning Journal - Parsing Audiobooks](https://dev.to/dev3l/social-learning-journal-parsing-audiobooks-2428)<br />
+[Social Learning Journal - Classification](https://dev.to/dev3l/social-learning-journal-classification-28gf)<br />
+[Social Learning Journal - Density](https://dev.to/dev3l/social-learning-journal-density-opb)<br />
+[Social Learning Journal - Mediums](https://dev.to/dev3l/social-learning-journal-density-opb)<br />
 
 ## Prerequisites
 
