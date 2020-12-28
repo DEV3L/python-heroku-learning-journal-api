@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    image: mongo
+    ports:
+    - 27017:27017
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: learning-journal
+      MONGO_INITDB_ROOT_USERNAME: learning-journal
+      MONGO_INITDB_ROOT_PASSWORD: learning-journal

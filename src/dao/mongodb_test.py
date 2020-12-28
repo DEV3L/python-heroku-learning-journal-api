@@ -17,5 +17,5 @@ def test_mongodb_instance_only_ever_called_once(mock_pymongo, mock_logger):
 
     mock_pymongo.MongoClient.assert_called_with(expected_mongodb_uri)
     assert 1 == mock_pymongo.MongoClient.call_count
-    assert mock_pymongo.MongoClient.return_value['ps5_notifier'] == result_db
+    assert mock_pymongo.MongoClient.return_value['learning-journal'] == result_db
     assert mock_logger.info.called
