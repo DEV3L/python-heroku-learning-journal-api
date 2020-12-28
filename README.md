@@ -11,6 +11,7 @@ Articles written on Dev.to detailing project purpose, setup, and execution:<br /
 [Social Learning Journal - Classification](https://dev.to/dev3l/social-learning-journal-classification-28gf)<br />
 [Social Learning Journal - Density](https://dev.to/dev3l/social-learning-journal-density-opb)<br />
 [Social Learning Journal - Mediums](https://dev.to/dev3l/social-learning-journal-mediums-43ei)<br />
+[Social Learning Journal - Persistence](https://dev.to/dev3l/social-learning-journal-persistence-3og8)<br />
 
 ## Prerequisites
 

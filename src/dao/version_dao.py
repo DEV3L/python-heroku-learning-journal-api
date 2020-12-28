@@ -7,7 +7,7 @@ from src.models.version_model import VersionModel
 
 class VersionDao:
     def __init__(self, db: Database):
-        self.version_collection = db['migration_version']
+        self.version_collection = db['version']
 
     def insert(self, version_model: VersionModel) -> str:
         values = {**version_model.to_json, 'updated': datetime.utcnow()}

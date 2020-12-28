@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify
 from flask_script import Manager
 
+from src.migrations.v001_load_data import V001LoadData
+
 load_dotenv()
 
 from src.controllers.ping import ping
@@ -40,7 +42,8 @@ def handle_error(e):
 
 
 manager = Manager(app)
-# manager.add_command()
 
 if __name__ == '__main__':
+    V001LoadData().run()
+
     manager.run()
