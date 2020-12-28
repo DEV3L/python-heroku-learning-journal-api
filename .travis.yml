@@ -3,21 +3,23 @@ language: python
 python:
 - "3.7"
 
+services:
+- mongodb
+
+env:
+- MONGODB_URI=mongodb://learning-journal:learning-journal@localhost:27017/
+
+before_script:
+- sleep 15
+- mongo learning-journal --eval 'db.createUser({user:"learning-journal",pwd:"learning-journal",roles:["readWrite"]});'
+
 install:
 - pip install -r ./requirements.txt
 
 script:
-- mv .env.local .env
 - coverage run --timid --source ./src -m py.test
 - coverage report
 - bandit -s B301,B403,B101 -r ./src/
 
 after_success:
   coveralls
-
-services:
-- mongodb
-
-before_script:
-- sleep 15
-- mongo learning-journal --eval 'db.createUser({user:"learning-journal",pwd:"learning-journal",roles:["readWrite"]});'
