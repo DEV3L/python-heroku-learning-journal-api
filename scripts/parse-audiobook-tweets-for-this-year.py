@@ -9,24 +9,24 @@ from src.extractors.time_extractor import TimeExtractor
 
 load_dotenv()
 
-DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
+DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
 
 current_year = datetime.today().year
 
 
 def filter_by_audiobook_start(tweet: dict) -> bool:
     text = tweet['tweet']['full_text']
-    return "Started listening to:" in text or "Finished listening to:" in text
+    return 'Started listening to:' in text or 'Finished listening to:' in text
 
 
 def reduce_book_titles(result: set, tweet: dict) -> set:
     text = tweet['tweet']['full_text']
-    title = text.split(":")[1].split("\n")[0].strip()
+    title = text.split(':')[1].split('\n')[0].strip()
     result.add(title)
     return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 

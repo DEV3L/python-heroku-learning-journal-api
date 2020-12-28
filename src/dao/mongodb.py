@@ -16,7 +16,7 @@ class MongoDb:
         if force or not cls.db:
             logger.info('Connecting to MongoDb')
             mongodb_uri = mongodb_uri or os.getenv('MONGODB_URI')
-            mongodb_db = os.getenv("MONGODB_DB", "learning-journal")
+            mongodb_db = os.getenv('MONGODB_DB', 'learning-journal')
             client = pymongo.MongoClient(mongodb_uri)
             cls.db = client[mongodb_db]
 

@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
+DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 
@@ -15,11 +15,11 @@ if __name__ == "__main__":
                    [int(tweet['tweet']['display_text_range'][0]): int(tweet['tweet']['display_text_range'][1])]
                    for tweet in data]
 
-    tweets_with_mediums = list(filter(lambda text: ":" in text.split("\n")[0].replace("https:", "")
-                                                   and len(text.split("\n")) > 2
-                                                   and not text.startswith("RT @"), tweets_text))
+    tweets_with_mediums = list(filter(lambda text: ':' in text.split('\n')[0].replace('https:', '')
+                                                   and len(text.split('\n')) > 2
+                                                   and not text.startswith('RT @'), tweets_text))
 
-    mediums_set = {tweet_text.split("\n")[0].split(":")[0].lower() for tweet_text in tweets_with_mediums}
+    mediums_set = {tweet_text.split('\n')[0].split(':')[0].lower() for tweet_text in tweets_with_mediums}
     mediums = sorted(list(mediums_set))
 
 """

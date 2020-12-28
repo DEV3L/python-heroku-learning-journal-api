@@ -13,7 +13,7 @@ from src.services.logging_service import LoggingService
 logger = LoggingService('app')
 logger.info('Python Flask Heroku Learning Journal API app starting up')
 
-LOCAL_ENVIRONMENT = "local"
+LOCAL_ENVIRONMENT = 'local'
 environment = os.getenv('ENVIRONMENT', LOCAL_ENVIRONMENT)
 
 app = Flask(__name__)
@@ -21,6 +21,7 @@ app.register_blueprint(ping)
 
 app.register_blueprint(swagger_spec)
 app.register_blueprint(swagger_ui_blueprint, url_prefix=swagger_url)
+
 
 flask_host = os.getenv('HOST', '0.0.0.0')
 flask_port = os.getenv('PORT', 5000)
@@ -39,6 +40,7 @@ def handle_error(e):
 
 
 manager = Manager(app)
+# manager.add_command()
 
 if __name__ == '__main__':
     manager.run()

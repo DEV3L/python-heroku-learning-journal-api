@@ -13,7 +13,7 @@ from src.models.tweet_event_model import TweetEventModel
 
 load_dotenv()
 
-DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
+DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
 
 current_year = str(datetime.today().year)
 
@@ -35,13 +35,13 @@ def reduce_classifications(result: dict, tweet_event: TweetEventModel) -> dict:
     classification = classification_extractor.classify()
 
     kcv_value = DEFAULT_KCV_VALUE
-    if "^" in tweet_event.text:
-        kcv_annotation = tweet_event.text[tweet_event.text.index("^") + 1:].split("\n")[0]
+    if '^' in tweet_event.text:
+        kcv_annotation = tweet_event.text[tweet_event.text.index('^') + 1:].split('\n')[0]
 
-        if kcv_annotation.endswith("m"):
-            kcv_value = int(kcv_annotation.replace("m", ""))
-        elif kcv_annotation.endswith("p"):
-            pages = int(kcv_annotation.replace("p", ""))
+        if kcv_annotation.endswith('m'):
+            kcv_value = int(kcv_annotation.replace('m', ''))
+        elif kcv_annotation.endswith('p'):
+            pages = int(kcv_annotation.replace('p', ''))
             kcv_value = (pages * WORDS_PER_PAGE) / READ_WORDS_PER_MINUTE
 
     result[classification] = result[classification] + kcv_value
@@ -58,7 +58,7 @@ def full_text_from_tweet(tweet: dict):
     return tweet['tweet']['full_text']
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 

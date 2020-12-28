@@ -20,7 +20,7 @@ def test_extract_tweets_for_year_zero():
 
     time_extractor = TimeExtractor(tweet_data)
 
-    tweets_for_year = time_extractor.tweets_for_year("2020")
+    tweets_for_year = time_extractor.tweets_for_year('2020')
 
     assert not tweets_for_year
 
@@ -31,7 +31,7 @@ def test_extract_tweets_for_year_one():
 
     time_extractor = TimeExtractor(tweet_data)
 
-    tweets_for_year = time_extractor.tweets_for_year("2020")
+    tweets_for_year = time_extractor.tweets_for_year('2020')
 
     assert expected_count == len(tweets_for_year)
 
@@ -42,7 +42,7 @@ def test_extract_tweets_for_year_not_found():
 
     time_extractor = TimeExtractor(tweet_data)
 
-    tweets_for_year = time_extractor.tweets_for_year("2019")
+    tweets_for_year = time_extractor.tweets_for_year('2019')
 
     assert expected_count == len(tweets_for_year)
 
@@ -53,6 +53,6 @@ def test_extract_tweets_for_year_many():
 
     time_extractor = TimeExtractor(tweet_data)
 
-    tweets_for_year = time_extractor.tweets_for_year("2020")
+    tweets_for_year = time_extractor.tweets_for_year('2020')
 
     assert expected_count == len(tweets_for_year)

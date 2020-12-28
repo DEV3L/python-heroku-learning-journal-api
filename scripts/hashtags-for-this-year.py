@@ -8,11 +8,11 @@ from src.extractors.time_extractor import TimeExtractor
 
 load_dotenv()
 
-DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
+DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
 
 current_year = datetime.today().year
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 

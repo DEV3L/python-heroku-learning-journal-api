@@ -39,5 +39,5 @@ def authorized_header_with_json_content_type() -> Dict:
 
 @pytest.fixture
 def mongo_db() -> Database:
-    _mongo_db = MongoDb.instance(force=True, mongodb_uri='mongodb://localhost:27017/')
+    _mongo_db = MongoDb.instance(force=True)
     return _mongo_db

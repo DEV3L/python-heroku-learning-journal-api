@@ -12,7 +12,7 @@ from src.extractors.time_extractor import TimeExtractor
 
 load_dotenv()
 
-DATA_SEED_TWITTER_PATH = os.environ.get("DATA_SEED_TWITTER_PATH", "./data/tweet.json")
+DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
 
 current_year = str(datetime.today().year)
 
@@ -48,7 +48,7 @@ def reduce_classifications(result: dict, tweet_hashtags: list) -> dict:
     return result
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     with open(DATA_SEED_TWITTER_PATH) as data_seed:
         data = json.load(data_seed)
 

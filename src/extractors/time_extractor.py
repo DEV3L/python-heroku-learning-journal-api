@@ -2,8 +2,8 @@ from typing import List, Dict
 
 from dateutil.parser import parse
 
-FIRST_OF_YEAR = "Jan 1 00:00:00 +0000 "
-END_OF_YEAR = "Dec 31 23:59:59 +0000 "
+FIRST_OF_YEAR = 'Jan 1 00:00:00 +0000 '
+END_OF_YEAR = 'Dec 31 23:59:59 +0000 '
 
 
 class TimeExtractor:
