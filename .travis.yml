@@ -7,6 +7,7 @@ install:
 - pip install -r ./requirements.txt
 
 script:
+- mv .env.local .env
 - coverage run --timid --source ./src -m py.test
 - coverage report
 - bandit -s B301,B403,B101 -r ./src/
