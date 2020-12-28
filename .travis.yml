@@ -7,11 +7,7 @@ services:
 - mongodb
 
 env:
-- MONGODB_URI=mongodb://learning-journal:learning-journal@localhost:27017/
-
-before_script:
-- sleep 15
-- mongo learning-journal --eval 'db.createUser({user:"learning-journal",pwd:"learning-journal",roles:["readWrite"]});'
+- MONGODB_URI=mongodb://localhost:27017/
 
 install:
 - pip install -r ./requirements.txt
