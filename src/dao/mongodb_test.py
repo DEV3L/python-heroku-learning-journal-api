@@ -8,12 +8,16 @@ from src.dao.mongodb import MongoDb
 @patch('src.dao.mongodb.pymongo')
 def test_mongodb_instance_only_ever_called_once(mock_pymongo, mock_logger):
     expected_mongodb_uri = 'mongodb_uri'
+    original_mongodb_uri = os.environ['MONGODB_URI']
+
     os.environ['MONGODB_URI'] = expected_mongodb_uri
 
     MongoDb.db = None
 
     result_db = MongoDb.instance()
     MongoDb.instance()
+
+    os.environ['MONGODB_URI'] = original_mongodb_uri
 
     mock_pymongo.MongoClient.assert_called_with(expected_mongodb_uri)
     assert 1 == mock_pymongo.MongoClient.call_count
