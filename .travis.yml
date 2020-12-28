@@ -13,3 +13,10 @@ script:
 
 after_success:
   coveralls
+
+services:
+- mongodb
+
+before_script:
+- sleep 15
+- mongo learning-journal --eval 'db.createUser({user:"learning-journal",pwd:"learning-journal",roles:["readWrite"]});'
