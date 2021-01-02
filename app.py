@@ -41,6 +41,13 @@ def handle_error(e):
     return jsonify({'message': str(e)}), 500
 
 
+@app.after_request
+def apply_caching(response):
+    response.headers.set('Access-Control-Allow-Origin', '*')
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
+    return response
+
+
 manager = Manager(app)
 
 if __name__ == '__main__':
