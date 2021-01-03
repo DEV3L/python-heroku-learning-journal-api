@@ -14,6 +14,9 @@ gunicorn
 pymongo==3.10.1
 dnspython==1.16.0
 
+# firebase
+pyrebase==3.0.27
+
 # swagger
 flask-swagger==0.2.14
 flask-swagger-ui==3.20.9
