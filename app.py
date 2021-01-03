@@ -6,7 +6,6 @@ from flask_script import Manager
 
 load_dotenv()
 
-from src.dao.firebase import firebase_instance
 from src.migrations.v001_load_data import V001LoadData
 
 from src.controllers.ping import ping
@@ -54,8 +53,5 @@ manager = Manager(app)
 if __name__ == '__main__':
     # migrations
     V001LoadData().run()
-
-    # firebase
-    firebase = firebase_instance()
 
     manager.run()

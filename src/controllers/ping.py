@@ -1,5 +1,7 @@
 from flask import Blueprint
 
+from src.services.auth_service import auth
+
 ping = Blueprint('ping', __name__)
 
 
@@ -16,6 +18,21 @@ def hello_world():
         description: Hello, world!
     """
     return 'Hello, world!'
+
+
+@ping.route('/ping_authenticated', methods=['GET'])
+@auth.login_required
+def hello_world_authenticated():
+    """
+    Authenticated monitor endpoint
+    ---
+    tags:
+      - ping_authenticated
+    responses:
+      200:
+        description: Hello, authenticated world!
+    """
+    return 'Hello, authenticated world!'
 
 
 @ping.route('/raise', methods=['GET'])
