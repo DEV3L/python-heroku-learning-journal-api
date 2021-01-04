@@ -13,6 +13,7 @@ Articles written on Dev.to detailing project purpose, setup, and execution:<br /
 [Social Learning Journal - Mediums](https://dev.to/dev3l/social-learning-journal-mediums-43ei)<br />
 [Social Learning Journal - Persistence](https://dev.to/dev3l/social-learning-journal-persistence-3og8)<br />
 [Social Learning Journal - React](https://dev.to/dev3l/social-learning-journal-react-5494)<br />
+[Social Learning Journal - Walking Skeleton](https://dev.to/dev3l/social-learning-journal-walking-skeleton-1o3l)<br />
 
 ## Prerequisites
 
