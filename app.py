@@ -24,7 +24,6 @@ app.register_blueprint(ping)
 app.register_blueprint(swagger_spec)
 app.register_blueprint(swagger_ui_blueprint, url_prefix=swagger_url)
 
-
 flask_host = os.getenv('HOST', '0.0.0.0')
 flask_port = os.getenv('PORT', 5000)
 flask_debug = os.getenv('DEBUG', False)
@@ -42,9 +41,12 @@ def handle_error(e):
 
 
 @app.after_request
-def apply_caching(response):
-    response.headers.set('Access-Control-Allow-Origin', '*')
-    response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
+def apply_cors(response):
+    response.headers.set("Access-Control-Allow-Origin", "*")
+    response.headers.set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+    response.headers.set("Access-Control-Allow-Headers",
+                         "Origin, X-Requested-With, Content-Type, Accept, Authorization")
+
     return response
 
 
