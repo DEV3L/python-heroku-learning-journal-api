@@ -22,25 +22,39 @@ if __name__ == '__main__':
     mediums_set = {tweet_text.split('\n')[0].split(':')[0].lower() for tweet_text in tweets_with_mediums}
     mediums = sorted(list(mediums_set))
 
+    print("\n".join(mediums))
+
 """
-attended : conference/session
-attending : conference/session
-i'm at : conference/session
-lightning talk : conference/session
+-- FORMATTED RESULTS --
 
-watched : video
+attended        : conference/session
+attending       : conference/session
+i'm at          : conference/session
+lightning talk  : conference/session
 
-began: course
-completed: course
+began      : course
+completed  : course
+training   : course
 
-started listening to : audiobook start
-finished listening : audiobook end
+started listening to  : audiobook start
+finished listening    : audiobook end
+i finished listening  : audiobook end
 
-started reading : book start
-finished reading : book end
+started reading   : book start
+finished reading  : book end
 
-listend to : podcast
-listened to : podcast
+listen to   : podcast
+listend to  : podcast
+listened    : podcast
 
-presented : speaking
+presented  : speaking
+speaking   : speaking
+spoke      : speaking
+
+watch    : video
+watched  : video
+
+finalized   : other
+wrapped up  : other
+
 """

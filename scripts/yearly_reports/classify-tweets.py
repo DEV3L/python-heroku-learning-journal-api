@@ -1,20 +1,14 @@
 import json
 import os
-from datetime import datetime
 from functools import reduce
 from typing import List
 
-from dotenv import load_dotenv
-
+from scripts.yearly_reports import current_year
 from src.classifiers.hashtags import CLASSIFICATION_ENGINEERING, CLASSIFICATION_AGILE, \
     CLASSIFICATION_LEADERSHIP, CLASSIFICATION_OTHER, CLASSIFIED_HASHTAGS
 from src.extractors.time_extractor import TimeExtractor
 
-load_dotenv()
-
 DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
-
-current_year = str(datetime.today().year)
 
 classifications = {
     CLASSIFICATION_ENGINEERING: 0,

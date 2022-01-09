@@ -1,17 +1,11 @@
 import json
 import os
-from datetime import datetime
 from functools import reduce
 
-from dotenv import load_dotenv
-
+from scripts.yearly_reports import current_year
 from src.extractors.time_extractor import TimeExtractor
 
-load_dotenv()
-
 DATA_SEED_TWITTER_PATH = os.environ.get('DATA_SEED_TWITTER_PATH', './data/tweet.json')
-
-current_year = datetime.today().year
 
 
 def filter_by_audiobook_start(tweet: dict) -> bool:
