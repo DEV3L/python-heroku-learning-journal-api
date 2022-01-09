@@ -13,10 +13,19 @@ def test_event_data_model_sets_attributes():
 
 def test_event_data_model_returns_json():
     expected_json = {
+        'author': None,
+        'classification': None,
+        'data': {'key': 'value'},
+        'images': [],
+        'kcv': None,
+        'medium': None,
+        'raw_text': None,
         'source': 'twitter',
-        'data': {
-            'key': 'value'
-        }
+        'source_id': None,
+        'tags': [],
+        'text': None,
+        'user': None,
+        'version': 0,
     }
 
     event_data_model = EventDataModel('twitter', {'key': 'value'})

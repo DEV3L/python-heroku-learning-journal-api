@@ -38,14 +38,14 @@ cp .env.local .env
 
 1. Setup MongoDb
 
-`docker run -d -p 27017:27017 --name learning-journal mongo`
+`docker-compose up -d`
 
 2. Install Python Dependencies
 
 ```
-~ python3 -m venv python-flask-heroku-learning-journal
-~ source python-flask-heroku-learning-journal/bin/activate
-(python-flask-heroku-learning-journal) ~ python setup.py develop
+~ python3 -m venv venv
+~ source venv/bin/activate
+(venv) ~ python setup.py develop
 ```
 
 3. Run Tests

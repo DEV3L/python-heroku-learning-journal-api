@@ -7,9 +7,17 @@ import pytest
 from flask.testing import FlaskClient
 from pymongo.database import Database
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from src.migrations.v001_load_data import V001LoadData
+# TODO: Update to Flask 2+
 from app import app as flask_app
 from src.dao.mongodb import MongoDb
 
+# TODO: Remove from import time
+V001LoadData().run()
 
 @pytest.fixture
 def flask_test_client() -> FlaskClient:
